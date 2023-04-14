@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FugasConfig(AppConfig):
+class EquiposConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'fugas'
+    name = 'equipos'

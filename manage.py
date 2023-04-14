@@ -22,5 +22,5 @@ if __name__ == '__main__':
     main()
 
 # python manage.py runserver
-# 37 minutos
-# python manage.py startapp fugas
+# 57 minutos
+# python manage.py startapp equipos
