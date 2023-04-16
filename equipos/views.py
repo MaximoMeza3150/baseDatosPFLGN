@@ -6,4 +6,4 @@ def index(request):
     return render(request,"index.html")
 
 def mainEquipos(request):
-    return render (request, 'mainEquipos.html')
+    return render (request, 'mainEquipos.html',{})
