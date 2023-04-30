@@ -3,48 +3,15 @@
 
 {% block content %}
 <div class="container mt-2">
-    <p>Seleccione el equipo y presione 'Encontrar'</p>
-    <div>
-        <select class="form-select mt-2" aria-label="Default select example">
-            <option selected>Seleccione el área</option>
-            <option value="1">Planta</option>
-            <option value="2">Almacenamiento y despacho</option>
-            <option value="3">Truck loading</option>
-        </select>
-        <select class="form-select mt-2" aria-label="Default select example">
-            <option selected>Seleccione el subárea</option>
-            <option value="1">Procesos 1</option>
-            <option value="2">Procesos 2</option>
-            <option value="3">Procesos 3</option>
-            <option value="4">Servicios Auxiliares 1</option>
-            <option value="5">Servicios Auxiliares 2</option>
-        </select>
-        <select class="form-select mt-2" aria-label="Default select example">
-            <option selected>Seleccione el sistema</option>
-            <option value="1">Almacenamiento y bombeo de LGN</option>
-            <option value="2">Gas combustible</option>
-            <option value="3">Aire y nitrógeno comprimido</option>
-            <option value="4">Compresores VRU</option>
-            <option value="5">Drenaje abierto</option>
-            <option value="5">Flare</option>
-        </select>
-        <select class="form-select mt-2" aria-label="Default select example">
-            <option selected>Seleccione el equipo</option>
-            <option value="1">H-95001 - Calentador de gas</option>
-            <option value="2">H-95022 - Calentador de gas</option>
-            <option value="3">MAU-XXXX - Medidor de gas</option>
-            <option value="3">MAU-XXXX - Medidor de gas</option>
-            <option value="4">VBA-3501 - Esfera LGN</option>
-        </select>
-    </div>
 
-    <div class="d-grid gap-2 mt-2">
-        <button class="btn btn-primary" type="button">Encontrar</button>
-    </div>
-    <div class="mb-4">
-        <iframe class="container mt-4" src="https://drive.google.com/file/d/1QJeHcQXRRGkCEAq3hahIPyVGDomEtXCr/preview" width="640" height="480" allow="autoplay"></iframe>
-    </div>
-</div>
-
+        <div class="input-group mt-3 mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Buscador por TAG</span>
+            <input type="text" class="form-control" id="tag"  list="lista-datalist">
+            <datalist id="lista-datalist"></datalist>
+        </div>
+        <div class="mb-4">
+            <iframe id='datasheet' class="container mt-4"  width="640" height="480" allow="autoplay"></iframe>
+        </div>
+        <!-- src="https://drive.google.com/file/d/1QJeHcQXRRGkCEAq3hahIPyVGDomEtXCr/preview" -->
 
 {% endblock %}
