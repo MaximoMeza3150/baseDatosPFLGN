@@ -3,7 +3,6 @@
 
 {% block content %}
 <div class="container mt-2">
-
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Dashboard de emisiones fugitivas</h1>
@@ -23,7 +22,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-danger text-white mb-4">
                         <div class="card-header">Emisiones tipo G1</div>
-                        <div class="card-body">Emisiones de alta peligrosidad que deben ser atendidas de inmediato.</div>
+                        <div class="card-body">Emisiones fugitivas de alta peligrosidad que deben ser atendidas de inmediato.</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <a class="small text-white stretched-link" href="#">Total XX activas.</a>
                             <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
@@ -33,7 +32,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-warning text-white mb-4">
                         <div class="card-header">Emisiones tipo G2</div>
-                        <div class="card-body">Emisiones monitoreadas que deben ser atendidas como máximo en xx meses.</div>
+                        <div class="card-body">Emisiones fugitivas monitoreadas que deben ser atendidas como máximo en xx meses.</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-white stretched-link" href="#">Total XX activas.</a>
                             <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
@@ -43,7 +42,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-success text-white mb-4">
                         <div class="card-header">Emisiones tipo G3</div>
-                        <div class="card-body">Emisiones controladas y monitoreadas que deben ser atendidas en xx meses. </div>
+                        <div class="card-body">Emisiones monitoreadas y controladas atendidas como máximo en xx meses. </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-white stretched-link" href="#">Total XX activas.</a>
                             <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
@@ -53,7 +52,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
                         <div class="card-header">Emisiones superadas</div>
-                        <div class="card-body">Histórico de emisiones reparadas de todas las áreas. </div>
+                        <div class="card-body">Histórico de todas las emisiones reparadas de todas las áreas guardadas desde hace 2 años. </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <a class="small text-white stretched-link" href="#">Total xx registradas.</a>
                         </div>
@@ -93,21 +92,21 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    DataTable Example
+                    Últimos registros
                 </div>
                 <div class="card-body">
-                    <table id="datatablesSimple">
+                    <table class="table table-striped table-responsive" id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Operador</th>
+                                <th>Ubicación de la fuga</th>
+                                <th>Tipo</th>
+                                <th>Fluido</th>
+                                <th>% LEL</th>
+                                <th>Fecha</th>
                             </tr>
                         </thead>
-                        <tfoot>
+                        <!-- <tfoot>
                             <tr>
                                 <th>Name</th>
                                 <th>Position</th>
@@ -116,33 +115,16 @@
                                 <th>Start date</th>
                                 <th>Salary</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> -->
                         <tbody>
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td>Máximo Meza</td>
+                                <td>KBA-2000</td>
+                                <td>G3</td>
+                                <td>Propano</td>
+                                <td>5</td>
+                                <td>09/05/2023</td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                            </tr>
-
                         </tbody>
                     </table>
                 </div>

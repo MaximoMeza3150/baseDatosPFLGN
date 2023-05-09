@@ -1,0 +1,162 @@
+{% extends 'partials/_barraLateralEmisiones.html' %}
+{% block title %}Emisiones fugitivas{% endblock %}
+
+{% block content %}
+<div class="container mt-2">
+    <main class="container">
+        <!-- <div class="progress m-2"  role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
+            <div class="progress-bar" style="width: 25%"></div>
+        </div> -->
+
+          <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Antes de iniciar!</h4>
+            Recuerde que para registrar una nueva emisión fugitiva debe tener:
+            <li>El video de evidencia con la cámara FLIR.</li>
+            <li>El último monitoreo con explosímetro a 20 cm.</li>
+            <li>Ubicación exacta detallada en el P&ID.</li>
+            <li>Número de aviso cargado en el SAP.</li>
+            <hr>
+            <p class="mb-0">Si aún no los tiene, puede regresar mas tarde..</p>
+          </div>
+        <br><hr>
+          <h6 class="mb-3">Información de la fuga:</h6>
+          <p>Ubicación:</p>
+          <div class="row g-2">
+            <div class="col-md">
+                <div class="form-floating">
+                  <select class="form-select" required id="selectorYacimiento" aria-label="Floating label select example">
+                      <option>Procesos</option>
+                      <option>Servicios Auxiliares</option>
+                      <option>Almacenamiento y despacho</option>
+                      <option>Truck Loading</option>
+                  </select>
+                  <label for="selectorArea">Seleccione el yacimiento</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <select class="form-select" required id="selectorArea" aria-label="Floating label select example">
+                      <option>Procesos 1</option>
+                      <option>Procesos 2</option>
+                      <option>Procesos 3</option>
+                      <option>Servicios Auxiliares 1</option>
+                      <option>Servicios Auxiliares 2</option>
+                  </select>
+                  <label for="selectorArea">Seleccione el área</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <select class="form-select" required id="selectorSistema" aria-label="Floating label select example">
+                      <option>Ingreso NGL</option>
+                      <option>Esferas de almacenamiento</option>
+                      <option>Calentadores de gas combustible</option>
+                      <option>Medidores de gas combustible</option>
+                      <option>Sistema de drenaje abierto</option>
+                  </select>
+                  <label for="selectorArea">Seleccione el sistema</label>
+                </div>
+              </div>
+          </div>
+          <div class="form-floating mt-2">
+            <textarea class="form-control" placeholder="Coloque el comentario aquí." id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Tag del equipo asociado de la fuga</label>
+          </div>
+          <div class="form-floating mt-2">
+            <textarea class="form-control" placeholder="Coloque el comentario aquí." id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Punto exacto de la fuga</label>
+          </div>
+        <br><hr>
+
+        <p>Fluido:</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+             C1 - C2 (Gas seco - mezcla)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              C3 - Gas
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              C3 - Líquido
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              C4 - Gas
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              C4 - Líquido
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              NGL
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Condensado
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Hot oil
+            </label>
+          </div>
+          <br><hr>
+          <p>Componente:</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+             Bridas
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Conectores
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Líneas abiertas
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Tubings
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Válvulas
+            </label>
+          </div>
+          <br><hr>
+
+          <p>P&ID señalando la ubicación exacta de la fuga:</p>
+          <input class="form-control form-control-sm mt-2" id="formFileSm" type="file" accept="application/pdf">
+        <br><hr>
+          <div class="mb-3 mt-3">
+            <label for="formFileSm" class="form-label">Adjuntar video de la cámara FLIR (máximo 4 Mb)</label>
+            <input class="form-control form-control-sm" id="inputFLIR" type="file" accept="video/mp4">
+          </div>
+    </main>
+{% endblock %}
