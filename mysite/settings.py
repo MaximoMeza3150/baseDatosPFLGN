@@ -25,10 +25,10 @@ SECRET_KEY = 'django-insecure-uodcozk14e4ct@m=m*e6eb+!59tm4&e0t6q9j+8y!mb%o*x9(%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-CSRF_TRUSTED_ORIGINS = ['https://basededatospflgn.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://basededatospflgn.up.railway.app']
 ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
-    'https://basededatospflgn.up.railway.app/',
+    'https://basededatospflgn.up.railway.app',
 ]
 
 # Application definition
