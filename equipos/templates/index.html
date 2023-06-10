@@ -17,14 +17,22 @@
             <div class="container-fluid">
               <a class="navbar-brand">Planta Pisco Pluspetrol </a>
               <span class="navbar-text me-2">
-                <div id="nameUserNav">Usuario: Programador</div>
+                {% if user.is_authenticated %}
+                <div id="nameUserNav">Bienvenido {{user.first_name}} {{user.last_name}}</div>
+                <a href="/logout">Salir de sesión</a>
+                {% else %}
+                <a href="/login">Iniciar sesión</a>
+                {% endif %}
+                {% if user.is_superuser %}
+                <a href="/signup">crear usuario</a>
+                {% endif %}
+
               </span>
             </div>
         </nav>  
     </header>
 
     <main class="container pt-3">
-        
         <div class="row">
             <div class="col-md-4">
               <div class="card m-3" style="background-image:url('{% static 'img/pluspetrol_fondo.jpg' %}'); background-size: cover; background-repeat:no-repeat;">
@@ -33,14 +41,25 @@
                   <p class="card-text">Consolidado de toda la información técnica de los equipos de la planta PFLGN Pisco.
                     <br>
                   </p>
+                {% if user.is_authenticated %}
                   <button class="card-btn"><a href="/busquedaDatasheets">INGRESAR</a></button>
+                {% endif %}
                 </div>
               </div>
             </div>
           	<div class="card">
               <h3 class="card-title">Control de emisiones fugitivas</h3>
               <p class="card-content">Consolidado de fugas y emisiones de hidrocarburos de toda la planta PFLGN Pisco.</p>
-              <button class="card-btn"><a href="/emisionesFugitivas">INGRESAR</a></button>
+              {% if user.is_authenticated %}
+              <button class="card-btn"><a href="/emisionesFugitivas">DEMO</a></button>
+              {% endif %}
+            </div>
+            <div class="card">
+              <h3 class="card-title">Bitácora de proyectos</h3>
+              <p class="card-content">Detalle por día de los avances del área de proyectos.</p>
+              {% if user.is_authenticated %}
+              <button class="card-btn"><a href="#">EN PROCESO</a></button>
+              {% endif %}
             </div>
     </main>
 

@@ -6,7 +6,7 @@ utc = hoy.toLocaleDateString();
 horasDashboardEmisiones = hoy.getHours()
 minutosDashboardEmisiones = hoy.getMinutes()
 segundosDashboardEmisiones = hoy.getSeconds()
-console.log(utc)
+// console.log(utc)
 
 const fechaEmisiones = document.querySelector('#fechaActualizacionEmisiones');
 fechaEmisiones.textContent = 'Actualizado al ' + utc + ' a las ' + horasDashboardEmisiones + ':' + minutosDashboardEmisiones + ':' + segundosDashboardEmisiones + ' hrs' ;
