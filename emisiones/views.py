@@ -8,7 +8,7 @@ from .utils.factores import FactorFCF,Categorizacion
 # Create your views here.
 
 def mainEmisiones(request):
-    Emisiones = Emision.objects.all().order_by('-updated_at')
+    Emisiones = Emision.objects.all().order_by('-created_at')
     return render (request, 'mainEmisiones.html',{'Emisiones':Emisiones})
 
 def explosimetros(request):
