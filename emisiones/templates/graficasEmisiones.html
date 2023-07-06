@@ -1,0 +1,46 @@
+{% extends 'partials/_barraLateralEmisiones.html' %}
+{% block title %}Gráficas{% endblock %}
+
+{% block content %}
+<div class="container mt-2">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4 mb-4">Gráficas</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active"><div  id="fechaActualizacionEmisiones">Actualizado al dd/mm/aaaa a las hh:mm</div> 
+                </li>
+            </ol>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area me-1"></i>
+                            Area Chart Example
+                        </div>
+                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-bar me-1"></i>
+                            Bar Chart Example
+                        </div>
+                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-pie me-1"></i>
+                        Pie Chart Example
+                    </div>
+                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
+                    <div class="card-footer small text-muted"><div id="footerMyPieChart"><div id="fechaEmisiones2">Updated yesterday at 11:59 PM</div></div></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

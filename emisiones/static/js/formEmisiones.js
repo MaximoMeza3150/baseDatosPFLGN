@@ -7,6 +7,7 @@ let $sistema = document.getElementById('selectorSistemas')
 let sites = ['Malvinas', 'Pisco']
 let yacimientos = ['Procesos', 'Servicios Auxiliares']
 let areas = ['Procesos 1', 'Procesos 2', 'Procesos 3', 'Servicios Auxiliares 1', 'Servicios Auxiliares 2']
+let SSAA1 = ['Turbogeneración', 'Bombas contraincendio']
 let SSAA2 = ['Sistema de almacenamiento y bombeo de NGL', 'Sistema de gas combustible', 'Sistema de recuperación de vapores', 'Sistema de drenaje abierto', 'Sistema de drenaje cerrado', 'Sistema de drenaje frío cerrado', 'Sistema de flare de alta presión', 'Sistema de flare de baja presión']
 
 
@@ -47,6 +48,9 @@ $yacimiento.addEventListener('change', function(){
 $area.addEventListener('change', function(){
     let valor = $area.value
     switch (valor) {
+        case 'Servicios Auxiliares 1':
+            mostrarLugares(SSAA1,$sistema)
+            break;
         case 'Servicios Auxiliares 2':
             mostrarLugares(SSAA2,$sistema)
             break;

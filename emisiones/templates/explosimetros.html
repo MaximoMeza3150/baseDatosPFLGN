@@ -1,0 +1,51 @@
+{% extends 'partials/_barraLateralEmisiones.html' %}
+{% block title %}Explosímetros{% endblock %}
+
+{% block content %}
+<div class="container mt-2">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4 mb-4">Lista de explosímetros de planta</h1>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Explosímetros
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped " id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th scope="col">Área</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Código</th>
+                                <th scope="col">Próxima calibración</th>
+                            </tr>
+                        </thead>
+                        <!-- <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </tfoot> -->
+                        <tbody>
+                            <tr>
+                                <td>SSAA 2</td>
+                                <td>Altair</td>
+                                <td>XXXX</td>
+                                <td>XXXXXXX</td>
+                                <td>09/05/2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

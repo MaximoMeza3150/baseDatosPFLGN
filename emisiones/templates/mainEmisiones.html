@@ -59,36 +59,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Bar Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fas fa-chart-pie me-1"></i>
-                        Pie Chart Example
-                    </div>
-                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                    <div class="card-footer small text-muted"><div id="footerMyPieChart"><div id="fechaEmisiones2">Updated yesterday at 11:59 PM</div></div></div>
-                </div>
-            </div>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
@@ -99,11 +69,12 @@
                         <thead>
                             <tr>
                                 <th>Operador</th>
+                                <th>Área</th>
                                 <th>Ubicación de la fuga</th>
-                                <th>Tipo</th>
-                                <th>Fluido</th>
-                                <th>% LEL</th>
-                                <th>Fecha</th>
+                                <th>Punto de fuga</th>
+                                <th>Categoría</th>
+                                <th>FCF</th>
+                                <th>Fecha del reporte</th>
                             </tr>
                         </thead>
                         <!-- <tfoot>
@@ -117,14 +88,17 @@
                             </tr>
                         </tfoot> -->
                         <tbody>
+                            {% for Emision in Emisiones %}
                             <tr>
-                                <td>Máximo Meza</td>
-                                <td>KBA-2000</td>
-                                <td>G3</td>
-                                <td>Propano</td>
-                                <td>5</td>
-                                <td>09/05/2023</td>
+                                <td>{{Emision.usuario.first_name}} {{Emision.usuario.last_name}} </td>
+                                <td>{{Emision.area}}</td>
+                                <td>{{Emision.ubicacion}}</td>
+                                <td>{{Emision.fuga}}</td>
+                                <td>{{Emision.categoria}}</td>
+                                <td>{{Emision.FCF}}</td>
+                                <td>{{Emision.created_at}}</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

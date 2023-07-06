@@ -15,14 +15,15 @@
             <p class="mb-0">Si aún no los tiene, puede regresar mas tarde..</p>
           </div>
         <br><hr>
-
-        <form action="post">
+        
+        <form action="/registrarEmisiones/" method="POST">
+          {% csrf_token %}
           <!-- <h6 class="mb-3">Información de la fuga:</h6> -->
           <p>Ubicación:</p>
           <div class="row g-2">
             <div class="col-md">
                 <div class="form-floating">
-                  <select class="form-select" required id="selectorSite" aria-label="Floating label select example">
+                  <select class="form-select" required id="selectorSite" aria-label="Floating label select example" name="name_site">
                       <option></option>
                   </select>
                   <label>Seleccione el site</label>
@@ -30,7 +31,7 @@
             </div>
             <div class="col-md">
               <div class="form-floating">
-                <select class="form-select" required id="selectorYacimiento" aria-label="Floating label select example">
+                <select class="form-select" required id="selectorYacimiento" aria-label="Floating label select example" name="name_yacimiento">
                     <option></option>
                 </select>
                 <label>Seleccione el yacimiento</label>
@@ -38,7 +39,7 @@
             </div>
             <div class="col-md">
               <div class="form-floating">
-                <select class="form-select" required id="selectorArea" aria-label="Floating label select example">
+                <select class="form-select" required id="selectorArea" aria-label="Floating label select example" name="name_area">
                     <option></option>
                 </select>
                 <label>Seleccione el área</label>
@@ -46,7 +47,7 @@
             </div>
             <div class="col-md">
               <div class="form-floating">
-                <select class="form-select" required id="selectorSistemas" aria-label="Floating label select example">
+                <select class="form-select" required id="selectorSistemas" aria-label="Floating label select example" name="name_sistema">
                     <option></option>
                 </select>
                 <label>Seleccione el sistema</label>
@@ -54,11 +55,11 @@
             </div>
           </div>
           <div class="form-floating mt-2">
-            <textarea class="form-control" id="inputUbicacion" required></textarea>
+            <textarea class="form-control" name="name_ubicacion" id="inputUbicacion" required maxlength="200"></textarea>
             <label>Ubicación</label>
           </div>
           <div class="form-floating mt-2" >
-            <textarea class="form-control" id="inputFuga" required style="height: 100px"></textarea>
+            <textarea class="form-control" id="inputFuga" name="name_fuga" required style="height: 100px" maxlength="300"></textarea>
             <label>Punto de fuga</label>
           </div>
 
@@ -66,68 +67,68 @@
 
           <p>Fluido:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-            <label class="form-check-label" for="flexRadioDefault2">
-             C1 - C2 (Gas seco - mezcla)
-            </label>
+              <input class="form-check-input" type="radio" name="name_fluido" value="C1 - C2 (Gas seco - mezcla)" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+               C1 - C2 (Gas seco - mezcla)
+              </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              C3 - Gas
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              C3 - Líquido
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              C4 - Gas
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              C4 - Líquido
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              NGL
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Condensado
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Hot oil
-            </label>
-          </div>
+              <input class="form-check-input" type="radio" value="C3 - Gas" name="name_fluido" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                C3 - Gas
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="name_fluido" value="C3 - Líquido" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                C3 - Líquido
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="name_fluido" value="C4 - Gas" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                C4 - Gas
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="name_fluido" value="C4 - Líquido" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                C4 - Líquido
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="name_fluido" value="NGL" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                NGL
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="name_fluido" value="Condensado" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Condensado
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="name_fluido" value="Hot oil" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Hot oil
+              </label>
+            </div>
           <p class="mt-4">Sustancia:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_sustancia" value="C1 a C4 - Gas" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
              C1 a C4 - Gas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_sustancia" value="C3 a C4 - Líquido condensado (mezcla de líquidos livianos)" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               C3 a C4 - Líquido condensado (mezcla de líquidos livianos)
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_sustancia" value="C5+ - Crudos" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               C5+ - Crudos
             </label>
@@ -136,37 +137,37 @@
           <br><hr>
           <p>Componente:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_componente" value="Bridas" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
              Bridas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_componente" value="Conectores" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Conectores
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_componente" value="Líneas abiertas" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Líneas abiertas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_componente" value="Sello de bombas" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Sello de bombas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_componente" value="Válvulas" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Válvulas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_componente" value="Otros" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Otros
             </label>
@@ -174,19 +175,19 @@
 
           <p class="mt-4">Instalación:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_instalacion" value="Unión bridada" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
              Unión bridada
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_instalacion" value="Unión roscada" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Unión roscada
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_instalacion" value="Sello / junta" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Sello / junta
             </label>
@@ -194,64 +195,64 @@
 
           <p class="mt-4">Tamaño de accesorio:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_tamAccesorio" value='Menor a 1"' id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
              Menor a 1"
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_tamAccesorio" value='De 1" a 4"' id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               De 1" a 4"
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_tamAccesorio" value='Mayor a 4"' id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Mayor a 4"
             </label>
           </div>
 
-
           <br><hr>
           <p>Medición a 0 cm:</p>
-          <input type="number" min="1" max="100"> %LEL
+          <input type="number" min="0" max="100" name="name_medicion"> %LEL
+
           <p class="mt-4">Medición a 15 cm:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_medicion15" value="LEL ≤ 20" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
-              %LEL ≤ 20
+              LEL ≤ 20
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_medicion15" value="20 < LEL ≤ 60" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
-              20 < %LEL ≤ 60 
+              20 < LEL ≤ 60 
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_medicion15" value="LEL > 60" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
-              %LEL > 60
+              LEL > 60
             </label>
           </div>
 
           <br><hr>
           <p>Presión:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_presion" id="flexRadioDefault2" value="Baja presión" checked>
             <label class="form-check-label" for="flexRadioDefault2" >
               Baja presión
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_presion" value="Media presión" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Media presión
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_presion" value="Alta Presión" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Alta Presión
             </label>
@@ -259,19 +260,19 @@
 
           <p class="mt-4">Ciclado:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_ciclado" value="Baja (sin ciclado)" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2" >
               Baja (sin ciclado)
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_ciclado" value="Medio (térmico o mecánico)" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Medio (térmico o mecánico)
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_ciclado" value="Alto (térmico y mecánico)" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Alto (térmico y mecánico)
             </label>
@@ -280,19 +281,19 @@
           <br><hr>
           <p>Fuente de ignición:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_ignicion" value="Baja" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2" >
               Baja
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_ignicion" value="Media" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Media
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_ignicion" value="Alta" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Alta
             </label>
@@ -301,19 +302,19 @@
           <br><hr>
           <p>Localización:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_localizacion" value="Interior" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2" >
               Interior
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_localizacion" value="Confinado" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Confinado
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_localizacion" value="Exterior" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Exterior
             </label>
@@ -323,23 +324,18 @@
           <div class="mb-2 mt-2">
             <label class="form-label">Fecha de hallazgo - </label>
             <small>¿Qué día sucedió?</small>
-            <input type="date" class="form-control" id="fechaReporte" name="fechaReporte" required>
+            <input type="date" class="form-control" id="fechaReporte" name="name_fechaReporte" required>
           </div>
           <p>Reportado por: </p>
           <p> {{user.first_name}} {{user.last_name}}</p>
 
+          <div class="d-grid mt-4 gap-2 col-6 mx-auto">
+            <button class="btn btn-primary me-md-2" type="submit">Guardar</button>
+            <a class="btn btn-secondary  me-md-2" type="button" href="javascript: history.back()" role="button">Cancelar</a>
+          </div>
+
         </form>
 
-
-
-
-
-
-
-
-
-
- 
           <!-- <p>P&ID señalando la ubicación exacta de la fuga:</p>
           <input class="form-control form-control-sm mt-2" id="formFileSm" type="file" accept="application/pdf">
         <br><hr>
