@@ -15,7 +15,7 @@ def explosimetros(request):
     return render (request, 'explosimetros.html',{})
 
 def categorizacion_pdf(request):
-    return render (request, 'categorizacion_pdf.html',{})
+    return render (request, 'categorizacion_PDF.html',{})
 def procedimientoG1_pdf(request):
     return render (request, 'procedimientoG1_PDF.html',{})
 def procedimientoG2_pdf(request):
