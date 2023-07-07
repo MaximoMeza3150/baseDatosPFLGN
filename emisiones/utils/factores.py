@@ -1,3 +1,4 @@
+from ..models import Emision
 
 def FactorFCF(sustancia,medicion15, presion, instalacion,tamAccesorio,ciclado,ignicion,localizacion,fluido):
     if sustancia == "C1 a C4 - Gas":
@@ -81,3 +82,32 @@ def Categorizacion(FCF):
     if FCF > 73 and FCF <= 351:
         categoria = 'G1'
     return categoria
+
+def FactorizacionTipoG():
+    tipoG1 = Emision.objects.all().filter(categoria='G1')
+    tipoG2 = Emision.objects.all().filter(categoria='G2')
+    tipoG3 = Emision.objects.all().filter(categoria='G3')
+
+    cantidadG1 = 0
+    cantidadG2 = 0
+    cantidadG3 = 0
+
+    if(tipoG1==[]):
+        cantidadG1 = 0
+    else:
+        for G1 in tipoG1:
+            cantidadG1 = cantidadG1 +1
+
+    if(tipoG2==[]):
+        cantidadG2 = 0
+    else:
+        for G2 in tipoG2:
+            cantidadG2 = cantidadG2 +1
+
+    if(tipoG3==[]):
+        cantidadG3 = 0
+    else:
+        for G3 in tipoG3:
+            cantidadG3 = cantidadG3 +1
+
+    return cantidadG1,cantidadG2,cantidadG3

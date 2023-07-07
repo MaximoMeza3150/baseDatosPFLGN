@@ -8,11 +8,12 @@ from django.db import IntegrityError
 from .forms import CustomUserCreationForm
 
 # Create your views here.
+
 def index(request):
     if User.is_authenticated:
         return render(request,"index.html")
     else:
-        return redirect('signup')
+        return redirect('login')
 
 
 def signup(request):

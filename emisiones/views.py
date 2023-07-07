@@ -3,13 +3,15 @@ from .models import Emision
 from django.contrib.auth.models import User
 import datetime
 
-from .utils.factores import FactorFCF,Categorizacion
+from .utils.factores import FactorFCF,Categorizacion,FactorizacionTipoG
 
 # Create your views here.
 
 def mainEmisiones(request):
-    Emisiones = Emision.objects.all().order_by('-created_at')
-    return render (request, 'mainEmisiones.html',{'Emisiones':Emisiones})
+    Emisiones = Emision.objects.all().order_by('-updated_at')
+    cantidadG1,cantidadG2,cantidadG3 = FactorizacionTipoG()
+
+    return render (request, 'mainEmisiones.html',{'Emisiones':Emisiones, 'cantidadG1':cantidadG1,'cantidadG2':cantidadG2,'cantidadG3':cantidadG3},)
 
 def explosimetros(request):
     return render (request, 'explosimetros.html',{})
@@ -47,6 +49,8 @@ def registrarEmisiones(request):
         fechaReporte = request.POST.get('name_fechaReporte', '')
         updated_at = datetime.datetime.now()
         usuario = request.user
+        # Para adjuntar imagenes al registro
+        # https://www.youtube.com/watch?v=KSFCQud4avc
 
         emisionSuperada = False;
         FCF = FactorFCF(sustancia,medicion15,presion,instalacion,tamAccesorio,ciclado,ignicion,localizacion,fluido)
