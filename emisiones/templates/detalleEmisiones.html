@@ -1,0 +1,116 @@
+{% extends 'partials/_barraLateralEmisiones.html' %}
+{% block title %}Categorización de emisiones fugitivas{% endblock %}
+
+{% block content %}
+<div class="container mt-2">
+    <main>
+        <div class="container-fluid px-4">
+            <h2 class="mt-4 mb-4">Detalle de la emisión en {{emision.sistema}} del {{emision.fechaReporte}}
+            </h2>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th scope="row">Site</th>
+                <td>{{emision.site}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Yacimiento</th>
+                <td>{{emision.yacimiento}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Área</th>
+                <td>{{emision.area}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Sistema</th>
+                <td>{{emision.sistema}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Ubicación</th>
+                <td>{{emision.ubicacion}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Fuga</th>
+                <td>{{emision.fuga}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Fluido</th>
+                <td>{{emision.fluido}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Sustancia</th>
+                <td>{{emision.sustancia}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Componente</th>
+                <td>{{emision.componente}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Instalación</th>
+                <td>{{emision.instalacion}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Tamaño de accesorio</th>
+                <td>{{emision.tamAccesorio}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Medición a 0 cm</th>
+                <td>{{emision.medicion}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Medición a 15 cm</th>
+                <td>{{emision.medicion15}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Presión</th>
+                <td>{{emision.presion}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Ciclado</th>
+                <td>{{emision.ciclado}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Fuente de ignición</th>
+                <td>{{emision.ignicion}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Localización</th>
+                <td>{{emision.localizacion}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Emision superada</th>
+                {% if Emision.emisionSuperada %}
+                <td>Si</td>
+                {% else %}
+                <td>No</td>
+                {% endif %}
+              </tr>
+              <tr>
+                <th scope="row">FCF</th>
+                <td>{{emision.FCF}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Categoría</th>
+                <td>{{emision.categoria}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Fecha del reporte</th>
+                <td>{{emision.fechaReporte}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Fecha de actualización</th>
+                <td>{{emision.updated_at}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Usuario</th>
+                <td>{{emision.usuario.first_name}} {{emision.usuario.last_name}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+    </main>
+
+{% endblock %}

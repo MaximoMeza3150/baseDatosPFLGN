@@ -1,0 +1,60 @@
+{% extends 'partials/_barraLateralEmisiones.html' %}
+{% block title %}Categorización de emisiones fugitivas{% endblock %}
+
+{% block content %}
+<div class="container mt-2">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4 mb-4">Emisiones en toda la planta</h1>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Últimos registros
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-responsive" id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Operador</th>
+                                <th>Área</th>
+                                <th>Ubicación de la fuga</th>
+                                <th>Punto de fuga</th>
+                                <th>Categoría</th>
+                                <th>Actualización</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <!-- <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </tfoot> -->
+                        <tbody>
+                            {% for Emision in Emisiones %}
+                            <tr>
+                                <td>{{Emision.usuario.first_name}} {{Emision.usuario.last_name}} </td>
+                                <td>{{Emision.area}}</td>
+                                <td>{{Emision.ubicacion}}</td>
+                                <td>{{Emision.fuga}}</td>
+                                <td>{{Emision.categoria}}</td>
+                                <td>{{Emision.created_at}}</td>
+                                <td>
+                                    <button><a href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
+                                    <button><a href="#">Actualizar</a></button>
+                                    <button><a href="#">Eliminar</a></button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

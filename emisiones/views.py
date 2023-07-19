@@ -1,7 +1,8 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Emision
 from django.contrib.auth.models import User
 import datetime
+
 
 from .utils.factores import FactorFCF,Categorizacion,FactorizacionTipoG
 
@@ -27,6 +28,26 @@ def procedimientoG3_pdf(request):
 def graficasEmisiones(request):
     return render (request, 'graficasEmisiones.html',{})
 
+def listaEmisionesTodas(request):
+    Emisiones = Emision.objects.all().order_by('-updated_at')
+    return render (request, 'areaTodasEmisiones.html',{'Emisiones':Emisiones})
+def listaEmisionesP1(request):
+    Emisiones = Emision.objects.filter(area='Procesos 1').order_by('-updated_at')
+    return render (request, 'areaP1Emisiones.html',{'Emisiones' : Emisiones})
+def listaEmisionesP2(request):
+    return render (request, 'areaP2Emisiones.html',{})
+def listaEmisionesP3(request):
+    return render (request, 'areaP3Emisiones.html',{})
+def listaEmisionesSA1(request):
+    Emisiones = Emision.objects.filter(area='Servicios Auxiliares 1').order_by('-updated_at')
+    return render (request, 'areaP1Emisiones.html',{'Emisiones' : Emisiones})
+def listaEmisionesSA2(request):
+    Emisiones = Emision.objects.filter(area='Servicios Auxiliares 2').order_by('-updated_at')
+    return render (request, 'areaP1Emisiones.html',{'Emisiones' : Emisiones})
+def userEmisiones(request):
+    Emisiones = Emision.objects.filter(usuario=request.user).order_by('-updated_at')
+    return render (request, 'userEmisiones.html',{'Emisiones' : Emisiones})
+
 def registrarEmisiones(request):
     if request.method == 'POST':
         site = request.POST.get('name_site', '')
@@ -48,6 +69,7 @@ def registrarEmisiones(request):
         localizacion = request.POST.get('name_localizacion', '')
         fechaReporte = request.POST.get('name_fechaReporte', '')
         updated_at = datetime.datetime.now()
+        imagen = request.POST.get('name_imagenEmision')
         usuario = request.user
         # Para adjuntar imagenes al registro
         # https://www.youtube.com/watch?v=KSFCQud4avc
@@ -56,8 +78,12 @@ def registrarEmisiones(request):
         FCF = FactorFCF(sustancia,medicion15,presion,instalacion,tamAccesorio,ciclado,ignicion,localizacion,fluido)
         categoria = Categorizacion(FCF)
 
-        emisionNueva = Emision.objects.create(site=site, yacimiento=yacimiento, area= area, sistema=sistema, ubicacion=ubicacion, fuga=fuga,fluido=fluido,sustancia=sustancia,componente=componente,instalacion=instalacion,tamAccesorio=tamAccesorio,medicion=medicion, medicion15=medicion15, presion=presion, ciclado=ciclado,ignicion=ignicion,localizacion=localizacion,usuario=usuario, fechaReporte=fechaReporte, updated_at=updated_at, emisionSuperada=emisionSuperada,FCF=FCF, categoria=categoria)
+        emisionNueva = Emision.objects.create(site=site, yacimiento=yacimiento, area= area, sistema=sistema, ubicacion=ubicacion, fuga=fuga,fluido=fluido,sustancia=sustancia,componente=componente,instalacion=instalacion,tamAccesorio=tamAccesorio,medicion=medicion, medicion15=medicion15, presion=presion, ciclado=ciclado,ignicion=ignicion,localizacion=localizacion,usuario=usuario, fechaReporte=fechaReporte, updated_at=updated_at, emisionSuperada=emisionSuperada,FCF=FCF, categoria=categoria, imagen=imagen)
 
         return redirect ('emisionesPrincipal')
     else:
         return render (request, 'registrarEmisiones.html',{})
+
+def detalleEmisiones(request, emision_id ):
+    emision = get_object_or_404(Emision,pk=emision_id)
+    return render(request, 'detalleEmisiones.html', {'emision' : emision})

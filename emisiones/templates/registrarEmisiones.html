@@ -319,6 +319,13 @@
               Exterior
             </label>
           </div>
+          <!-- <p>P&ID señalando la ubicación exacta de la fuga:</p>
+          <input class="form-control form-control-sm mt-2" id="formFileSm" type="file" accept="application/pdf">
+        <br><hr> -->
+        <!-- <div class="mb-3 mt-3">
+          <label for="formFileSm" class="form-label">Adjuntar imagen de la fuga</label>
+          <input class="form-control form-control-sm" name="name_imagenEmision" type="file" accept="image/*" required>
+        </div> -->
 
           <br><hr>
           <div class="mb-2 mt-2">
@@ -326,6 +333,7 @@
             <small>¿Qué día sucedió?</small>
             <input type="date" class="form-control" id="fechaReporte" name="name_fechaReporte" required>
           </div>
+
           <p>Reportado por: </p>
           <p> {{user.first_name}} {{user.last_name}}</p>
 
@@ -336,12 +344,6 @@
 
         </form>
 
-          <!-- <p>P&ID señalando la ubicación exacta de la fuga:</p>
-          <input class="form-control form-control-sm mt-2" id="formFileSm" type="file" accept="application/pdf">
-        <br><hr>
-          <div class="mb-3 mt-3">
-            <label for="formFileSm" class="form-label">Adjuntar video de la cámara FLIR (máximo 4 Mb)</label>
-            <input class="form-control form-control-sm" id="inputFLIR" type="file" accept="video/mp4">
-          </div> -->
+
     </main>
 {% endblock %}
