@@ -32,7 +32,7 @@ class Emision(models.Model):
     emisionSuperada = models.BooleanField(default=False)
     FCF = models.PositiveSmallIntegerField(null=True)
     categoria = models.CharField(max_length=10, null=True)
-    imagen = models.ImageField(upload_to='images_emisiones', null=True)
+    imagen = models.ImageField(upload_to='imagenesEmisiones', null=True)
 
     def __str__(self):
         return self.area + ' - ' + self.ubicacion

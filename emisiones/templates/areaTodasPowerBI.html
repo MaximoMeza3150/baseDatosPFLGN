@@ -1,0 +1,70 @@
+{% extends 'partials/_barraLateralEmisiones.html' %}
+{% block title %}Categorización de emisiones fugitivas{% endblock %}
+
+{% block content %}
+<div class="container">
+    <main>
+        <h1 class="mt-4 mb-4">Emisiones PowerBI</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Site</th>
+                <th>Yacimiento</th>
+                <th>Área</th>
+                <th>Sistema</th>
+                <th>Ubicación</th>
+                <th>Punto de fuga</th>
+                <th>Fluido</th>
+                <th>Sustancia</th>
+                <th>Componente</th>
+                <th>Instalación</th>
+                <th>Tamaño de accesorio</th>
+                <th>Medición a 0 cm</th>
+                <th>Medición a 15 cm</th>
+                <th>Presión</th>
+                <th>Ciclado</th>
+                <th>Fuente de ignición</th>
+                <th>Localización</th>
+                <th>FCF</th>
+                <th>Categoría</th>
+                <th>Emisión superada</th>
+                <th>Operador</th>
+                <th>Fecha de reporte</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for Emision in Emisiones %}
+                <tr>
+                    <td>{{Emision.id}}</td>
+                    <td>{{Emision.site}}</td>
+                    <td>{{Emision.yacimiento}}</td>
+                    <td>{{Emision.area}}</td>
+                    <td>{{Emision.sistema}}</td>
+                    <td>{{Emision.ubicacion}}</td>
+                    <td>{{Emision.fuga}}</td>
+                    <td>{{Emision.fluido}}</td>
+                    <td>{{Emision.sustancia}}</td>
+                    <td>{{Emision.componente}}</td>
+                    <td>{{Emision.instalacion}}</td>
+                    <td>{{Emision.tamAccesorio}}</td>
+                    <td>{{Emision.medicion}}</td>
+                    <td>{{Emision.medicion15}}</td>
+                    <td>{{Emision.presion}}</td>
+                    <td>{{Emision.ciclado}}</td>
+                    <td>{{Emision.ignicion}}</td>
+                    <td>{{Emision.localizacion}}</td>
+                    <td>{{Emision.FCF}}</td>
+                    <td>{{Emision.categoria}}</td>
+                    <td>{{Emision.emisionSuperada}}</td>
+                    <td>{{Emision.usuario.first_name}} {{Emision.usuario.last_name}} </td>
+                    <td>{{Emision.created_at}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+          </table>
+
+    </main>
+
+{% endblock %}

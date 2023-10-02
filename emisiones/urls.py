@@ -18,7 +18,12 @@ urlpatterns = [
     path('listaEmisionesP3/', views.listaEmisionesP3, name='listaEmisionesP3'),
     path('listaEmisionesSA1/', views.listaEmisionesSA1, name='listaEmisionesSA1'),
     path('listaEmisionesSA2/', views.listaEmisionesSA2, name='listaEmisionesSA2'),
+    path('listaEmisionesG1/', views.listaEmisionesG1, name='listaEmisionesG1'),
+    path('listaEmisionesG2/', views.listaEmisionesG2, name='listaEmisionesG2'),
+    path('listaEmisionesG3/', views.listaEmisionesG3, name='listaEmisionesG3'),
     path('listaMisReportes/', views.userEmisiones, name='listaMisReportes'),
+    path('listaPowerBI/', views.listaEmisionesPowerBI, name='listaEmisionesPowerBI'),
     path('detalleEmisiones/<int:emision_id>', views.detalleEmisiones, name='detalleEmisiones'),
-
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

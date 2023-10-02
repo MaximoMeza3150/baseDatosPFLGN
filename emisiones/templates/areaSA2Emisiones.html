@@ -45,9 +45,9 @@
                             <td>{{Emision.categoria}}</td>
                             <td>{{Emision.created_at}}</td>
                             <td>
-                                <button><a href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
-                                <button><a href="#">Actualizar</a></button>
-                                <button><a href="#">Eliminar</a></button>
+                                <button type="button" class="btn btn-success m-1"><a style="color: white; text-decoration:none"  href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
+                                <button type="button" class="btn btn-warning m-1"><a style="color: black; text-decoration:none"  href="#">Superado</a></button>
+                                <button type="button" class="btn btn-danger m-1"><a style="color: white; text-decoration:none"  href="#">Eliminar</a></button>
                             </td>
                         </tr>
                         {% endfor %}

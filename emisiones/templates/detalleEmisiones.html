@@ -103,14 +103,19 @@
                 <td>{{emision.updated_at}}</td>
               </tr>
               <tr>
+                <th scope="row">Evidencia</th>
+                <td> <a target="_blank" href="{{emision.imagen.url}}">Enlace aquí</a></td>
+              </tr>
+              <tr>
                 <th scope="row">Usuario</th>
                 <td>{{emision.usuario.first_name}} {{emision.usuario.last_name}}</td>
               </tr>
 
             </tbody>
           </table>
-
-
+          <div class="d-grid gap-4 d-md-flex justify-content-md-end">
+            <a class="btn btn-primary  me-md-4" type="button" href="javascript: history.back()" role="button">Retornar</a>
+          </div>
     </main>
 
 {% endblock %}

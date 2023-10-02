@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Emision
 from django.contrib.auth.models import User
 import datetime
+from random import randrange
 
 
 from .utils.factores import FactorFCF,Categorizacion,FactorizacionTipoG
@@ -26,11 +27,39 @@ def procedimientoG2_pdf(request):
 def procedimientoG3_pdf(request):
     return render (request, 'procedimientoG3_PDF.html',{})
 def graficasEmisiones(request):
+    serie = []
+    counter = 0
+    while(counter < 7):
+        serie.append(randrange(100, 400))
+        counter += 1
+
+    chart = {
+        'xAxis': [
+            {
+                'type': "category",
+                'data': ["Mon", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+            }
+        ],
+        'yAxis': [
+            {
+                'type': "value",
+            }
+        ],
+        'series': [
+            {
+                'data': serie,
+                'type': "line"
+            }
+        ]
+    }
     return render (request, 'graficasEmisiones.html',{})
 
 def listaEmisionesTodas(request):
     Emisiones = Emision.objects.all().order_by('-updated_at')
     return render (request, 'areaTodasEmisiones.html',{'Emisiones':Emisiones})
+def listaEmisionesPowerBI(request):
+    Emisiones = Emision.objects.all().order_by('-updated_at')
+    return render (request, 'areaTodasPowerBI.html',{'Emisiones':Emisiones})
 def listaEmisionesP1(request):
     Emisiones = Emision.objects.filter(area='Procesos 1').order_by('-updated_at')
     return render (request, 'areaP1Emisiones.html',{'Emisiones' : Emisiones})
@@ -44,6 +73,15 @@ def listaEmisionesSA1(request):
 def listaEmisionesSA2(request):
     Emisiones = Emision.objects.filter(area='Servicios Auxiliares 2').order_by('-updated_at')
     return render (request, 'areaP1Emisiones.html',{'Emisiones' : Emisiones})
+def listaEmisionesG1(request):
+    Emisiones = Emision.objects.filter(categoria='G1').order_by('-updated_at')
+    return render (request, 'activaG1Emisiones.html',{'Emisiones' : Emisiones})
+def listaEmisionesG2(request):
+    Emisiones = Emision.objects.filter(categoria='G2').order_by('-updated_at')
+    return render (request, 'activaG2Emisiones.html',{'Emisiones' : Emisiones})
+def listaEmisionesG3(request):
+    Emisiones = Emision.objects.filter(categoria='G3').order_by('-updated_at')
+    return render (request, 'activaG3Emisiones.html',{'Emisiones' : Emisiones})
 def userEmisiones(request):
     Emisiones = Emision.objects.filter(usuario=request.user).order_by('-updated_at')
     return render (request, 'userEmisiones.html',{'Emisiones' : Emisiones})
@@ -69,7 +107,7 @@ def registrarEmisiones(request):
         localizacion = request.POST.get('name_localizacion', '')
         fechaReporte = request.POST.get('name_fechaReporte', '')
         updated_at = datetime.datetime.now()
-        imagen = request.POST.get('name_imagenEmision')
+        imagen = request.FILES.get('name_imagenEmision')
         usuario = request.user
         # Para adjuntar imagenes al registro
         # https://www.youtube.com/watch?v=KSFCQud4avc

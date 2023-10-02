@@ -6,7 +6,8 @@
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4 mb-4">Emisiones en toda la planta</h1>
-            <div class="card mb-4">
+        </div>
+        <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     Últimos registros
@@ -44,16 +45,16 @@
                                 <td>{{Emision.categoria}}</td>
                                 <td>{{Emision.created_at}}</td>
                                 <td>
-                                    <button><a href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
-                                    <button><a href="#">Actualizar</a></button>
-                                    <button><a href="#">Eliminar</a></button>
+                                    <button type="button" class="btn btn-success m-1"><a style="color: white; text-decoration:none"  href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
+                                    <button type="button" class="btn btn-warning m-1"><a style="color: black; text-decoration:none"  href="#">Superado</a></button>
+                                    <button type="button" class="btn btn-danger m-1"><a style="color: white; text-decoration:none"  href="#">Eliminar</a></button>
                                 </td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
-            </div>
+
         </div>
     </main>
 

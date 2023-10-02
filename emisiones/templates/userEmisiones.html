@@ -20,7 +20,7 @@
                             <th>Área</th>
                             <th>Ubicación de la fuga</th>
                             <th>Punto de fuga</th>
-                            <th>Superada</th>
+                            <!-- <th>Superada</th> -->
                             <th>Categoría</th>
                             <th>Actualización</th>
                             <th>Acciones</th>
@@ -43,17 +43,17 @@
                             <td>{{Emision.area}}</td>
                             <td>{{Emision.ubicacion}}</td>
                             <td>{{Emision.fuga}}</td>
-                            {% if Emision.emisionSuperada %}
+                            <!-- {% if Emision.emisionSuperada %}
                                 <td>Si</td>
                             {% else %}
                                 <td>No</td>
-                            {% endif %}
+                            {% endif %} -->
                             <td>{{Emision.categoria}}</td>
                             <td>{{Emision.created_at}}</td>
                             <td>
-                                <button><a href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
-                                <button><a href="#">Actualizar</a></button>
-                                <button><a href="#">Eliminar</a></button>
+                                <button type="button" class="btn btn-success m-1"><a style="color: white; text-decoration:none"  href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
+                                <button type="button" class="btn btn-warning m-1"><a style="color: black; text-decoration:none"  href="#">Superado</a></button>
+                                <button type="button" class="btn btn-danger m-1"><a style="color: white; text-decoration:none"  href="#">Eliminar</a></button>
                             </td>
                         </tr>
                         {% endfor %}

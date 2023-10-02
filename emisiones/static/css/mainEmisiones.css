@@ -56,3 +56,15 @@
 .contenedorEmisiones div table tr,th {
   text-align: center;
 }
+.btn-detalle {
+  color: white;
+  text-decoration: none;
+}
+.btn-superado {
+  color: black;
+  text-decoration: none;
+}
+.btn-eliminar {
+  color: white;
+  text-decoration: none;
+}

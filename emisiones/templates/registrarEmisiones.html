@@ -16,7 +16,7 @@
           </div>
         <br><hr>
         
-        <form action="/registrarEmisiones/" method="POST">
+        <form action="/registrarEmisiones/" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <!-- <h6 class="mb-3">Información de la fuga:</h6> -->
           <p>Ubicación:</p>
@@ -322,10 +322,10 @@
           <!-- <p>P&ID señalando la ubicación exacta de la fuga:</p>
           <input class="form-control form-control-sm mt-2" id="formFileSm" type="file" accept="application/pdf">
         <br><hr> -->
-        <!-- <div class="mb-3 mt-3">
+        <div class="mb-3 mt-3">
           <label for="formFileSm" class="form-label">Adjuntar imagen de la fuga</label>
           <input class="form-control form-control-sm" name="name_imagenEmision" type="file" accept="image/*" required>
-        </div> -->
+        </div>
 
           <br><hr>
           <div class="mb-2 mt-2">

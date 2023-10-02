@@ -5,7 +5,7 @@
 <div class="container mt-2">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Dashboard de emisiones fugitivas</h1>
+            <h1 class="mt-4">Resumen de emisiones fugitivas</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active"><div  id="fechaActualizacionEmisiones">Actualizado al dd/mm/aaaa a las hh:mm</div> </li>
             </ol>
@@ -24,7 +24,7 @@
                         <div class="card-header">Emisiones tipo G1</div>
                         <div class="card-body">Emisiones fugitivas de alta peligrosidad que deben ser atendidas de inmediato.</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">Total {{cantidadG1}} activas.</a>
+                            <a class="small text-white stretched-link" href="/listaEmisionesG1">Total {{cantidadG1}} activas.</a>
                             <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="card-header">Emisiones tipo G2</div>
                         <div class="card-body">Emisiones fugitivas monitoreadas que deben ser atendidas como máximo en xx meses.</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Total {{cantidadG2}} activas.</a>
+                        <a class="small text-white stretched-link" href="/listaEmisionesG2">Total {{cantidadG2}} activas.</a>
                             <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                         <div class="card-header">Emisiones tipo G3</div>
                         <div class="card-body">Emisiones monitoreadas y controladas atendidas como máximo en xx meses. </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Total {{cantidadG3}}  activas.</a>
+                        <a class="small text-white stretched-link" href="/listaEmisionesG3">Total {{cantidadG3}}  activas.</a>
                             <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 <th>Ubicación de la fuga</th>
                                 <th>Punto de fuga</th>
                                 <th>Categoría</th>
-                                <th>FCF</th>
+                                <!-- <th>FCF</th> -->
                                 <th>Actualización</th>
                             </tr>
                         </thead>
@@ -95,7 +95,7 @@
                                 <td>{{Emision.ubicacion}}</td>
                                 <td>{{Emision.fuga}}</td>
                                 <td>{{Emision.categoria}}</td>
-                                <td>{{Emision.FCF}}</td>
+                                <!-- <td>{{Emision.FCF}}</td> -->
                                 <td>{{Emision.created_at}}</td>
                             </tr>
                             {% endfor %}
