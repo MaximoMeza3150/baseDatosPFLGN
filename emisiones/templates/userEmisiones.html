@@ -3,21 +3,6 @@
 
 {% block content %}
 
-<script>
-    function eliminar_Emision(id){
-        Swal.fire({
-            'title': '¿Estas seguro?',
-            'text': 'Esta acción no se puede deshacer',
-            'icon': 'question',
-            'showCancelButton': true
-        }).then(function(result){
-            if(result.isConfirmed){
-                window.location.href = 'eliminarEmisiones/' + id + '/'
-            }
-        })
-    }
-</script>
-
 <div class="container mt-2">
     <main>
         <div class="card mb-4">
