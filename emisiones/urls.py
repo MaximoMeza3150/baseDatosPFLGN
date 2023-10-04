@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('emisionesFugitivas/', views.mainEmisiones, name='emisionesPrincipal'),
     path('registrarEmisiones/', views.registrarEmisiones, name='registrarEmisiones'),
+    path('eliminarEmisiones/<int:emision_id>/', views.eliminarEmisiones, name='eliminarEmisiones'),
     path('explosimetros/', views.explosimetros, name='explosimetros'),
     path('categorizacionEmisiones/', views.categorizacion_pdf, name='categorizacionEmisiones'),
     path('procedimientoG1/', views.procedimientoG1_pdf, name='procedimientoG1'),

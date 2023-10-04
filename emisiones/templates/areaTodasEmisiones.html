@@ -50,6 +50,8 @@
                                     <button type="button" class="btn btn-danger m-1"><a style="color: white; text-decoration:none"  href="#">Eliminar</a></button>
                                 </td>
                             </tr>
+                            {% empty %}
+                                <td colspan="7">No tiene registros</td>
                             {% endfor %}
                         </tbody>
                     </table>

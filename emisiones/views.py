@@ -3,6 +3,7 @@ from .models import Emision
 from django.contrib.auth.models import User
 import datetime
 from random import randrange
+from django.contrib import messages
 
 
 from .utils.factores import FactorFCF,Categorizacion,FactorizacionTipoG
@@ -14,9 +15,6 @@ def mainEmisiones(request):
     cantidadG1,cantidadG2,cantidadG3 = FactorizacionTipoG()
 
     return render (request, 'mainEmisiones.html',{'Emisiones':Emisiones, 'cantidadG1':cantidadG1,'cantidadG2':cantidadG2,'cantidadG3':cantidadG3},)
-
-def explosimetros(request):
-    return render (request, 'explosimetros.html',{})
 
 def categorizacion_pdf(request):
     return render (request, 'categorizacion_PDF.html',{})
@@ -53,6 +51,8 @@ def graficasEmisiones(request):
         ]
     }
     return render (request, 'graficasEmisiones.html',{})
+def explosimetros(request):
+    return render (request, 'explosimetros.html',{})
 
 def listaEmisionesTodas(request):
     Emisiones = Emision.objects.all().order_by('-updated_at')
@@ -117,11 +117,14 @@ def registrarEmisiones(request):
         categoria = Categorizacion(FCF)
 
         emisionNueva = Emision.objects.create(site=site, yacimiento=yacimiento, area= area, sistema=sistema, ubicacion=ubicacion, fuga=fuga,fluido=fluido,sustancia=sustancia,componente=componente,instalacion=instalacion,tamAccesorio=tamAccesorio,medicion=medicion, medicion15=medicion15, presion=presion, ciclado=ciclado,ignicion=ignicion,localizacion=localizacion,usuario=usuario, fechaReporte=fechaReporte, updated_at=updated_at, emisionSuperada=emisionSuperada,FCF=FCF, categoria=categoria, imagen=imagen)
-
         return redirect ('emisionesPrincipal')
     else:
         return render (request, 'registrarEmisiones.html',{})
-
 def detalleEmisiones(request, emision_id ):
     emision = get_object_or_404(Emision,pk=emision_id)
     return render(request, 'detalleEmisiones.html', {'emision' : emision})
+def eliminarEmisiones(request, emision_id):
+    emision = Emision.objects.get(id=emision_id)
+    emision.delete()
+    messages.success(request,'Actualizado en la base de datos')
+    return redirect('/listaMisReportes/')

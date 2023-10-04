@@ -56,4 +56,3 @@ $area.addEventListener('change', function(){
             break;
     }
 })
-

@@ -2,11 +2,24 @@
 {% block title %}Categorización de emisiones fugitivas{% endblock %}
 
 {% block content %}
+
+<script>
+    function eliminar_Emision(id){
+        Swal.fire({
+            'title': '¿Estas seguro?',
+            'text': 'Esta acción no se puede deshacer',
+            'icon': 'question',
+            'showCancelButton': true
+        }).then(function(result){
+            if(result.isConfirmed){
+                window.location.href = 'eliminarEmisiones/' + id + '/'
+            }
+        })
+    }
+</script>
+
 <div class="container mt-2">
     <main>
-        <div class="container-fluid px-4">
-            <h1 class="mt-4 mb-4">Mis reportes</h1>
-        </div>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -49,18 +62,36 @@
                                 <td>No</td>
                             {% endif %} -->
                             <td>{{Emision.categoria}}</td>
-                            <td>{{Emision.created_at}}</td>
+                            <td>{{Emision.created_at|date:'d/m/Y'}}</td>
                             <td>
                                 <button type="button" class="btn btn-success m-1"><a style="color: white; text-decoration:none"  href="{% url 'detalleEmisiones' Emision.id %}">Detalle</a></button>
                                 <button type="button" class="btn btn-warning m-1"><a style="color: black; text-decoration:none"  href="#">Superado</a></button>
-                                <button type="button" class="btn btn-danger m-1"><a style="color: white; text-decoration:none"  href="#">Eliminar</a></button>
+                                <form id='formEliminarEmision' action="{% url 'eliminarEmisiones' Emision.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="button" class="btn btn-danger m-1"><a style="color: white; text-decoration:none"  href="{% url 'eliminarEmisiones' Emision.id %}">Eliminar</a></button>
+                                </form>
                             </td>
                         </tr>
+                        {% empty %}
+                            <td colspan="7">No tiene registros</td>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
+        {% if messages %}
+            {% for m in messages %}
+                <script>
+                    Swal.fire({
+                        'title': 'Su registro ha sido borrado',
+                        'text': '{{m}}',
+                        'icon': 'success',
+                      })
+                </script>
+            {% endfor %}
+        {% endif %}
 
 {% endblock %}

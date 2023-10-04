@@ -93,10 +93,11 @@
                                 <!-- <td>{{Emision.usuario.first_name}} {{Emision.usuario.last_name}} </td> -->
                                 <td>{{Emision.area}}</td>
                                 <td>{{Emision.ubicacion}}</td>
-                                <td>{{Emision.fuga}}</td>
+                                <!-- truncate = máximo de caracteres para mostrar -->
+                                <td>{{Emision.fuga| truncatechars:50}}</td>
                                 <td>{{Emision.categoria}}</td>
                                 <!-- <td>{{Emision.FCF}}</td> -->
-                                <td>{{Emision.created_at}}</td>
+                                <td>{{Emision.created_at|date:'d/m/Y'}}</td>
                             </tr>
                             {% endfor %}
                         </tbody>

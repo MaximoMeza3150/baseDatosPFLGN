@@ -2,6 +2,7 @@
 {% block title %}Emisiones fugitivas{% endblock %}
 
 {% block content %}
+
 <div class="container mt-2">
     <main class="container">
           <div class="alert alert-success" role="alert">
@@ -16,7 +17,7 @@
           </div>
         <br><hr>
         
-        <form action="/registrarEmisiones/" method="POST" enctype="multipart/form-data">
+        <form id="formRegistroEmision" action="/registrarEmisiones/" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <!-- <h6 class="mb-3">Información de la fuga:</h6> -->
           <p>Ubicación:</p>
@@ -302,7 +303,7 @@
           <br><hr>
           <p>Localización:</p>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="name_localizacion" value="Interior" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="name_localizacion" value="Interior" id="flexRadioDefault2" >
             <label class="form-check-label" for="flexRadioDefault2" >
               Interior
             </label>
@@ -314,7 +315,7 @@
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="name_localizacion" value="Exterior" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="name_localizacion" value="Exterior" id="flexRadioDefault1" checked>
             <label class="form-check-label" for="flexRadioDefault1">
               Exterior
             </label>
@@ -342,5 +343,24 @@
             <a class="btn btn-secondary  me-md-2" type="button" href="javascript: history.back()" role="button">Cancelar</a>
           </div>
         </form>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+          document.querySelector('#formRegistroEmision').addEventListener('submit', function(e) {
+              e.preventDefault();  // Previene el envío del formulario
+              var form = this;
+              Swal.fire({
+                  title: '¿Estás seguro?',
+                  text: '¿Quieres enviar este formulario?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Sí, enviar',
+                  cancelButtonText: 'No, cancelar'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      form.submit();  // Envía el formulario si el usuario hace clic en "Sí, enviar"
+                  }
+              });
+          });
+          </script>
     </main>
 {% endblock %}
