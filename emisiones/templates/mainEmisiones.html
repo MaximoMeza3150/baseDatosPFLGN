@@ -99,7 +99,9 @@
                                 <!-- <td>{{Emision.FCF}}</td> -->
                                 <td>{{Emision.created_at|date:'d/m/Y'}}</td>
                             </tr>
-                            {% endfor %}
+                            {% empty %}
+                            <td colspan="7">No hay registros</td>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
