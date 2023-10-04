@@ -1,2 +1,5 @@
 venv
 staticfiles/admin
+# git add .
+#  git commit -m 'XXXXX'
+# 

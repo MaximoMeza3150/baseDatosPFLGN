@@ -125,6 +125,7 @@ def detalleEmisiones(request, emision_id ):
     return render(request, 'detalleEmisiones.html', {'emision' : emision})
 def eliminarEmisiones(request, emision_id):
     emision = Emision.objects.get(id=emision_id)
+    emision.imagen.delete()
     emision.delete()
     messages.success(request,'Actualizado en la base de datos')
     return redirect('/listaMisReportes/')
