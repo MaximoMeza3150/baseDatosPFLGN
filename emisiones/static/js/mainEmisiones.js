@@ -9,3 +9,5 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 });
+
+console.log('probando el console')
